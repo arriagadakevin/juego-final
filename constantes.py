@@ -1,0 +1,11 @@
+ANCHO_VENTANA = 1300
+ALTO_VENTANA = 800
+FPS = 60
+X = -40
+Y = 688
+SPEED_WALK = 5
+SPEED_RUN = 10
+GRAVEDAD = 8
+JUMP_POWER = 50
+FALL_SPEED = 1.5
+PATH_FONDOS = r"C:\Users\arria\OneDrive\Escritorio\UTN\python p-1\juego final\imagenes\Fondos"
