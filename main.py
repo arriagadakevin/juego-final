@@ -8,9 +8,9 @@ pg.init()
 clock = pg.time.Clock()
 imagen_fondo = pg.image.load(r"C:\Users\arria\OneDrive\Escritorio\caballero\fondo\forest_tileset_lite\Demo\demo.jpg")
 imagen_fondo = pg.transform.scale(imagen_fondo, (ANCHO_VENTANA, ALTO_VENTANA))
-player1 = Player(X,Y,SPEED_WALK,SPEED_RUN,GRAVEDAD,JUMP_POWER)
-flag_stay = "derecha"
-while True:
+player1 = Player(X,Y,SPEED_WALK,SPEED_RUN,GRAVEDAD,JUMP_POWER,"derecha")
+
+while True: 
     for evento in pg.event.get():
         if evento.type == pg.QUIT:
             pg.quit()
@@ -18,20 +18,20 @@ while True:
         
         if evento.type == pg.KEYDOWN:
             if evento.key == pg.K_d:
-                player1.control("walk_r",flag_stay)
-                flag_stay = "derecha"
+                player1.walk("derecha")
+                
             if evento.key == pg.K_a:
-                player1.control("walk_l",flag_stay)
-                flag_stay = "izquierda"
+                player1.walk("izquierda")
+
             if evento.key == pg.K_w:
-                player1.control("jump",flag_stay)
+                player1.jump()
         
         if evento.type == pg.KEYUP:
             if evento.key == pg.K_d or evento.key == pg.K_a or evento.key == pg.K_w:
-                    player1.control("stay", flag_stay)
-                
+                    player1.stay()
+    delta_ms = clock.tick(FPS)            
     screen.blit(imagen_fondo, imagen_fondo.get_rect())
-    player1.update() 
+    player1.update(delta_ms) 
     player1.draw(screen) 
     
     
@@ -44,5 +44,5 @@ while True:
     pg.display.flip()
     
     
-    delta_ms = clock.tick(FPS)
+    
     

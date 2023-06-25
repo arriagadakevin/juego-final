@@ -7,8 +7,8 @@ class auxiliar:
         fotograma_ancho = int(imagen.get_width()/columnas)
         fotograma_alto = int(imagen.get_height()/filas)
         x = 0
-        for columna in range(columnas):
-            for fila in range(filas):
+        for fila in range(filas):
+            for columna in range(columnas):
                 x = columna * fotograma_ancho
                 y = fila * fotograma_alto
                 print(x,y,fotograma_ancho,fotograma_alto)
