@@ -18,11 +18,13 @@ while True:
         
         if evento.type == pg.KEYDOWN:
             if evento.key == pg.K_d:
-                player1.walk("derecha")
+                player1.direccion = "derecha"
+                player1.walk()
                 
             if evento.key == pg.K_a:
-                player1.walk("izquierda")
-
+                player1.direccion = "izquierda"    
+                player1.walk()
+                
             if evento.key == pg.K_w:
                 player1.jump()
         

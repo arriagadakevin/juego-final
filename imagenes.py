@@ -6,4 +6,5 @@ stay_r =  pg.image.load(r"C:\Users\arria\OneDrive\Escritorio\caballero\Colour1\N
 stay_l = pg.transform.flip(stay_r, True, False)
 jump_r = pg.image.load(r"C:\Users\arria\OneDrive\Escritorio\caballero\Colour1\Outline\120x80_PNGSheets\_Jump.png")
 jump_l = pg.transform.flip(jump_r, True, False)
-jump_final = pg.image.load(r"C:\Users\arria\OneDrive\Escritorio\caballero\Colour1\Outline\120x80_PNGSheets\_JumpFallInbetween.png")
+fall_r = pg.image.load(r"C:\Users\arria\OneDrive\Escritorio\caballero\Colour1\Outline\120x80_PNGSheets\_JumpFallInbetween.png")
+fall_l = pg.transform.flip(fall_r, True, False)

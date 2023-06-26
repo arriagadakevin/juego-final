@@ -33,21 +33,24 @@ class Player:
        
         
     
-    def walk(self,direccion):
-        self.direccion = direccion
-        if direccion == "derecha":
+    def walk(self):
+        if self.direccion == "derecha":
             self.mover_x = self.speed_walk
             self.animation = self.walk_r
         else:
-            self.mover_x =  -self.speed_walk
-            self.animation = self.walk_l    
+            self.mover_x =  -1 * self.speed_walk
+            self.animation = self.walk_l   
         self.frame = 0 
 
     def jump(self):
         if not self.is_jump:
             self.jump_velocity = JUMP_POWER
             self.is_jump = True
-
+            if self.direccion == "derecha":
+                self.animation = self.jump_r
+            else:
+                self.animation = self.jump_l
+            self.frame = 0
     def stay(self):
         
         if self.direccion == "derecha":
@@ -78,7 +81,7 @@ class Player:
         
         self.rect.x += self.mover_x
         self.rect.y += self.mover_y
-        print(self.rect,"movido")
+        
         if self.rect.y >= SUELO_PRINCIPAL:
             self.rect.y = SUELO_PRINCIPAL
             self.jump_velocity = 0
@@ -87,5 +90,6 @@ class Player:
 
         
     def draw(self, screen):
+        print(self.frame)
         self.image = self.animation[self.frame]
         screen.blit(self.image, self.rect)
